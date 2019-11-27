@@ -1,0 +1,15 @@
+{% extends 'polls/base.html' %}
+{% block content %}
+  <p>Question: {{question}}</p>
+  <p>Choices</p>
+  <p>
+    <a href="{% url 'polls:new_choice' question.id %}">Add new choice</a>
+  </p>
+  <ul>
+  {% for choice in choices %}
+    <li>{{choice}}</li>
+  {% empty%}
+    <li>There are no choices for this question yet</li>
+  {% endfor %}
+  </ul>
+{% endblock content%}
